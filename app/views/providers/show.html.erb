@@ -1,0 +1,47 @@
+<div class="page-header">
+  <%= link_to providers_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-list-alt"></span>
+    All Providers
+  <% end %>
+  <%= link_to edit_provider_path(@provider), class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-pencil"></span>
+    Edit
+  <% end %>
+  <h1>Show provider</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt>Name:</dt>
+  <dd><%= @provider.name %></dd>
+
+  <dt>Focus:</dt>
+  <dd><%= @provider.focus %></dd>
+
+  <dt>Contact:</dt>
+  <dd><%= @provider.contact %></dd>
+
+  <dt>Address:</dt>
+  <dd><%= @provider.address %></dd>
+
+  <dt>Phone:</dt>
+  <dd><%= @provider.phone %></dd>
+
+  <dt>Rfc:</dt>
+  <dd><%= @provider.rfc %></dd>
+
+  <dt>Email:</dt>
+  <dd><%= @provider.email %></dd>
+
+  <dt>Website:</dt>
+  <dd><%= @provider.website %></dd>
+
+  <dt>Reference:</dt>
+  <dd><%= @provider.reference %></dd>
+
+  <dt>Reference2:</dt>
+  <dd><%= @provider.reference2 %></dd>
+
+  <dt>Reference3:</dt>
+  <dd><%= @provider.reference3 %></dd>
+
+</dl>
