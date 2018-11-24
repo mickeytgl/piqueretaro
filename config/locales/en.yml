@@ -30,4 +30,17 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    attributes:
+      provider:
+        name: "Nombre"
+        focus: "Giro"
+        contact: "Contacto"
+        address: "Dirección"
+        phone: "Teléfono"
+        rfc: "Rfc"
+        email: "Correo electrónico"
+        website: "Sitio web"
+        reference: "Referencia 1"
+        reference2: "Referencia 2"
+        reference3: "Referencia 3"
