@@ -44,3 +44,8 @@ en:
         reference: "Referencia 1"
         reference2: "Referencia 2"
         reference3: "Referencia 3"
+  helpers:
+    submit:
+      create: "Crear"
+      submit: "Guardar"
+      update: "Actualizar"
