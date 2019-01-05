@@ -1,3 +1,8 @@
-<h1>¡Bienvenido a la página del Parque Industrial Querétaro</h1>
-<p class="lead">¿Eres proveedor? Puedes registrarte aquí:</p>
-<%= button_to "Registro", new_provider_path, method: :get, class: "btn btn-primary" %>
+<% if user_signed_in? %>
+  <h1>¡Bienvenido de regreso!</h1>
+  <%= button_to "Lista de Proveedores", providers_path, method: :get, class: "btn btn-primary" %>
+<% else %>
+  <h1>¡Bienvenido a la página del Parque Industrial Querétaro</h1>
+  <p class="lead">¿Eres proveedor? Puedes registrarte aquí:</p>
+  <%= button_to "Registro", new_provider_path, method: :get, class: "btn btn-primary" %>
+<% end %>
