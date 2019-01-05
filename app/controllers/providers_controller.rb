@@ -1,6 +1,6 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:new, :create]
 
   # GET /providers
   # GET /providers.json
@@ -29,7 +29,7 @@ class ProvidersController < ApplicationController
 
     respond_to do |format|
       if @provider.save
-        format.html { redirect_to @provider, notice: 'Provider was successfully created.' }
+        format.html { redirect_to root_path, notice: '¡Gracias! Te has registrado exitosamente.' }
         format.json { render :show, status: :created, location: @provider }
       else
         format.html { render :new }
