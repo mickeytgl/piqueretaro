@@ -1,5 +1,5 @@
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: [:show, :edit, :update, :destroy]
+  before_action :set_provider, only: [:show, :edit, :update, :destroy, :pdf]
   before_action :authenticate_user!, except: [:new, :create]
 
   # GET /providers
@@ -43,7 +43,7 @@ class ProvidersController < ApplicationController
   def update
     respond_to do |format|
       if @provider.update(provider_params)
-        format.html { redirect_to @provider, notice: 'Provider was successfully updated.' }
+        format.html { redirect_to @provider, notice: 'El proveedor se actualizó exitosamente.' }
         format.json { render :show, status: :ok, location: @provider }
       else
         format.html { render :edit }
@@ -57,7 +57,16 @@ class ProvidersController < ApplicationController
   def destroy
     @provider.destroy
     respond_to do |format|
-      format.html { redirect_to providers_url, notice: 'Provider was successfully destroyed.' }
+      format.html { redirect_to providers_url, notice: 'El proveedor se eliminó exitosamente.' }
+      format.json { head :no_content }
+    end
+  end
+
+  # DELETE /providers/1
+  def pdf
+    @provider.pdf.purge
+    respond_to do |format|
+      format.html { redirect_to @provider, notice: 'El archivo se eliminó exitosamente.' }
       format.json { head :no_content }
     end
   end
@@ -70,6 +79,6 @@ class ProvidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def provider_params
-      params.require(:provider).permit(:name, :focus, :contact, :address, :phone, :rfc, :email, :website, :reference, :reference2, :reference3)
+      params.require(:provider).permit(:name, :focus, :contact, :address, :phone, :rfc, :email, :website, :reference, :reference2, :reference3, :pdf)
     end
 end

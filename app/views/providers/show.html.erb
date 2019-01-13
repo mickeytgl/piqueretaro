@@ -7,7 +7,7 @@
     <span class="glyphicon glyphicon-pencil"></span>
     Editar
   <% end %>
-  <h1>Show provider</h1>
+  <h1>Mostrar Proveedor</h1>
 </div>
 
 <dl class="dl-horizontal">
@@ -44,4 +44,11 @@
   <dt><%= Provider.human_attribute_name(:reference3) %></dt>
   <dd><%= @provider.reference3 %></dd>
 
+  <dt><%= Provider.human_attribute_name(:pdf) %></dt>
+  <% if @provider.pdf.attached? %>
+    <dd><%= link_to image_tag(@provider.pdf.preview(resize: "300x300")), rails_blob_path(@provider.pdf, disposition: :attachment) %></dd>
+    <%= link_to 'Borrar PDF', pdf_provider_path, method: :delete, class: "text-danger", data: { confirm: 'Esta acción no se puede revertir.' } %>
+  <% else %>
+    <dd>No hay archivo PDF presente</dd>
+  <% end %>
 </dl>

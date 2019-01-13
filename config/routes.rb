@@ -1,7 +1,9 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  resources :providers
+  resources :providers do
+    delete 'pdf', on: :member
+  end
   namespace :admin do
       resources :users
       resources :announcements

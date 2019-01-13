@@ -31,6 +31,7 @@
             <th>Referencia 1</th>
             <th>Referencia 2</th>
             <th>Referencia 3</th>
+            <th>PDF</th>
 
       </tr>
     </thead>
@@ -52,8 +53,11 @@
                       <td><%= provider.reference %></td>
                       <td><%= provider.reference2 %></td>
                       <td><%= provider.reference3 %></td>
-
-
+                      <% if provider.pdf.attached? %>
+                        <td><%= link_to provider.pdf.name, rails_blob_path(provider.pdf, disposition: :inline) %></td>
+                      <% else %>
+                        <td></td>
+                      <% end %>
         <% end %>
       <% end %>
     </tbody>
