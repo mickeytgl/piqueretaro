@@ -45,8 +45,9 @@
   <dd><%= @provider.reference3 %></dd>
 
   <dt><%= Provider.human_attribute_name(:pdf) %></dt>
-  <% if @provider.pdf.attached? %>
+  <% if @provider.pdf.attached? && @provider.pdf.previewable? %>
     <dd><%= link_to image_tag(@provider.pdf.preview(resize: "300x300")), rails_blob_path(@provider.pdf, disposition: :attachment) %></dd>
+  <% elsif @provider.pdf.attached? && !@provider.pdf.previewable? %>
     <%= link_to 'Borrar PDF', pdf_provider_path, method: :delete, class: "text-danger", data: { confirm: 'Esta acción no se puede revertir.' } %>
   <% else %>
     <dd>No hay archivo PDF presente</dd>
