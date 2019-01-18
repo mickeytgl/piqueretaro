@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def privacy
   end
+
+  def google042ee14dea69adec
+  end
 end
