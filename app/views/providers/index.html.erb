@@ -54,7 +54,7 @@
                       <td><%= provider.reference2 %></td>
                       <td><%= provider.reference3 %></td>
                       <% if provider.pdf.attached? %>
-                        <td><%= link_to provider.pdf.name, rails_blob_path(provider.pdf, disposition: :inline) %></td>
+                        <td><%= link_to provider.pdf.filename, rails_blob_path(provider.pdf, disposition: :inline) %></td>
                       <% else %>
                         <td></td>
                       <% end %>
